@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #form="ngForm" (ngSubmit)="save(form)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="name" placeholder="Employee name" #name="ngModel"
+                  [(ngModel)]="employeeService.selectedEmployee.name">
+              </div>
+
+              <div class="input-field col s12">
+                <input name="position" placeholder="Employee position" #position="ngModel"
+                  [(ngModel)]="employeeService.selectedEmployee.position">
+              </div>
+
+              <div class="input-field col s12">
+                <input name="office" placeholder="Employee office" #office="ngModel"
+                  [(ngModel)]="employeeService.selectedEmployee.office">
+              </div>
+
+              <div class="input-field col s12">
+                <input type="number" name="salary" placeholder="Employee salary" #salary="ngModel"
+                  [(ngModel)]="employeeService.selectedEmployee.salary">
+              </div>
+
+              <div class="card-action">
+                <div class="input-field col s12">
+                  <button type="button" class="btn" (click)="resetForm(form)">Reset</button>
+
+                  <button class="btn right">Save</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s7">
+      <table>
+        <thead>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Salary</th>
+          <th>Actions</th>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let item of employeeService.items">
+            <td>{{item._id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.position}}</td>
+            <td>{{item.office}}</td>
+            <td>{{item.salary}}</td>
+            <td>
+              <a (click)="fillForm(item)" class="">
+                <i class="material-icons">edit</i>
+              </a>
+
+              <a (click)="delete(item._id)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Employee {\n  constructor(_id = '', name = '', position = '', office = '', salary = 0) {\n    this._id = _id;\n    this.name = name;\n    this.position = position;\n    this.office = office;\n    this.salary = salary;\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
